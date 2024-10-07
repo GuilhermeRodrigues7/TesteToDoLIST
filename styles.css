@@ -1,0 +1,271 @@
+/* Estilos comuns */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    outline: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url(./img/background.png) no-repeat center center fixed;
+    background-size: cover;
+    overflow-x: hidden; /* Impede o scroll horizontal */
+    transition: background-color 0.3s, color 0.3s; /* Transição suave */
+}
+
+/* Tema Claro */
+.container {
+    background-color: #ffffff; /* Branco para um visual limpo */
+    color: #333; /* Cor do texto */
+    width: 95%; /* Mantenha a largura maior */
+    max-width: 800px; /* Aumenta a largura máxima */
+    border-radius: 15px; /* Bordas mais arredondadas */
+    padding: 50px; /* Aumenta o preenchimento */
+    margin: 30px auto; /* Centraliza e reduz a margem */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease; /* Transição suave para sombra */
+}
+
+.container:hover {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+}
+
+/* Tema Escuro */
+body.dark {
+    background-color: #121212; /* Fundo escuro */
+    color: #e0e0e0; /* Cor do texto claro */
+}
+
+.container.dark {
+    background-color: #1e1e1e; /* Fundo do container escuro */
+    color: #e0e0e0; /* Cor do texto claro */
+}
+
+/* Estilos de input para o tema claro */
+.input-task,
+.input-data {
+    border: 1px solid #ccc; /* Borda clara */
+    border-radius: 8px; /* Bordas arredondadas */
+    width: 100%;
+    height: 50px; /* Aumenta a altura */
+    padding-left: 20px; /* Espaço interno */
+    margin-bottom: 25px; /* Aumenta o espaço entre os campos */
+    transition: border-color 0.3s; /* Transição suave para borda */
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    background-color: #ffffff; /* Fundo claro */
+    color: #333; /* Texto escuro */
+}
+
+.input-task:focus,
+.input-data:focus {
+    border-color: #5cb85c; /* Cor de borda ao focar */
+    box-shadow: 0 0 5px rgba(92, 184, 92, 0.5); /* Sombra leve ao focar */
+}
+
+/* Estilos de input para o tema escuro */
+body.dark .input-task,
+body.dark .input-data {
+    border: 1px solid #444; /* Borda escura */
+    background-color: #333; /* Fundo escuro */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Estilos de botões */
+.button-add-task,
+.button-confirm,
+#logout-button,
+#theme-toggle {
+    border: none;
+    border-radius: 8px; /* Bordas arredondadas */
+    height: 50px; /* Aumenta a altura dos botões */
+    background-color: #5cb85c; /* Verde */
+    color: #fff; /* Texto branco */
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    padding: 0 20px; /* Aumenta o espaço interno */
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.3s; /* Transições suaves */
+    margin-bottom: 25px; /* Aumenta o espaço abaixo do botão */
+}
+
+.button-confirm {
+    margin-top: 40px; /* Aumenta o espaço acima do botão */
+    padding: 15px 25px; /* Aumenta o espaço interno do botão */
+}
+
+.button-add-task:hover {
+    background-color: #4cae4c; /* Cor mais escura ao passar o mouse */
+    transform: translateY(-3px); /* Levanta o botão ao passar o mouse */
+}
+
+.button-add-task:active {
+    transform: translateY(0); /* Retorna ao normal ao clicar */
+}
+
+#logout-button {
+    background-color: #ff4d4d; /* Cor de fundo */
+    margin-top: 20px; /* Espaço acima do botão */
+}
+
+#logout-button:hover {
+    background-color: #ff1a1a; /* Cor ao passar o mouse */
+}
+
+/* Ajuste específico para o tema escuro */
+body.dark .button-add-task,
+body.dark .button-confirm,
+body.dark #logout-button,
+body.dark #theme-toggle {
+    background-color: #ff4d4d; /* Cor de fundo do botão escuro */
+    color: #fff; /* Garante que o texto dos botões seja branco */
+}
+
+/* Estilos de lista e tarefas */
+.list-tasks {
+    width: 100%;
+    list-style: none;
+    margin-top: 40px;
+}
+
+.task {
+    background-color: #ffffff; /* Fundo da tarefa claro */
+    color: #333; /* Texto escuro */
+    box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    height: 60px; /* Aumenta a altura da tarefa */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; /* Aumenta o preenchimento lateral */
+    border-radius: 5px;
+    margin-bottom: 25px; /* Aumenta o espaço entre as tarefas */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição suave para fundo */
+}
+
+body.dark .task {
+    background-color: #2c2c2c; /* Fundo da tarefa escuro */
+    color: #e0e0e0; /* Texto claro */
+}
+
+body.dark .task:hover {
+    background-color: #3a3a3a; /* Cor ao passar o mouse */
+}
+
+.task img {
+    height: 30px; /* Aumenta o tamanho do ícone */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-left: 10px; /* Adiciona espaço à esquerda do ícone de editar */
+}
+
+.task:hover img {
+    opacity: 1;
+}
+
+/* Estilos para tarefas concluídas */
+.done {
+    background-color: #8fac55; /* Verde para tarefas concluídas */
+    text-decoration: line-through;
+    color: #333; /* Mantenha a cor do texto legível */
+}
+
+body.dark .done {
+    background-color: #6ab04c; /* Verde escuro para tarefas concluídas no tema escuro */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Estilos de login */
+.login-container {
+    background: #fff; /* Fundo claro */
+    padding: 30px; /* Aumenta o preenchimento */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s; /* Transições suaves */
+}
+
+body.dark .login-container {
+    background: #1e1e1e; /* Fundo escuro para o tema escuro */
+    color: #e0e0e0; /* Cor do texto clara */
+}
+
+.login-container h2 {
+    margin-bottom: 30px; /* Aumenta o espaço abaixo do título */
+}
+
+body.dark .login-container h2 {
+    color: #e0e0e0; /* Título claro no tema escuro */
+}
+
+.login-container input {
+    width: 100%;
+    padding: 15px; /* Aumenta o espaço interno */
+    margin: 15px 0; /* Aumenta o espaço entre os inputs */
+    border: 1px solid #ccc; /* Borda clara para o tema claro */
+    border-radius: 4px;
+    font-size: 16px; /* Aumenta o tamanho da fonte */
+    transition: border-color 0.3s; /* Transição suave para borda */
+}
+
+body.dark .login-container input {
+    border: 1px solid #444; /* Borda escura no tema escuro */
+    background-color: #333; /* Fundo escuro para os inputs */
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Estilos para botões de login */
+.login-container button {
+    width: 100%;
+    padding: 15px; /* Aumenta o espaço interno do botão */
+    background-color: #5cb85c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+body.dark .login-container button {
+    background-color: #5cb85c; /* Verde permanece o mesmo no tema escuro */
+}
+
+.login-container button:hover {
+    background-color: #4cae4c; /* Cor mais escura ao passar o mouse */
+}
+
+body.dark .login-container button:hover {
+    background-color: #4cae4c; /* Cor mais escura ao passar o mouse no tema escuro */
+}
+
+/* Estilos de notificações */
+.notificacao {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #5cb85c; /* Cor da notificação */
+    color: white;
+    padding: 15px 25px; /* Aumenta o espaço interno da notificação */
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s;
+}
+
+/* Estilos responsivos */
+@media (max-width: 600px) {
+    .input-task,
+    .input-data,
+    .button-add-task,
+    .button-confirm,
+    #logout-button {
+        width: 100%; /* Faz os botões e campos ocuparem toda a largura */
+        margin-bottom: 20px; /* Espaço entre os elementos */
+    }
+
+    .task {
+        padding: 15px; /* Aumenta o preenchimento em dispositivos móveis */
+    }
+}

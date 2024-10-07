@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <title>To Do List</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="usuario">Usuário</label>
+            <input type="text" id="usuario" placeholder="Usuário" required aria-label="Usuário">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Senha" required aria-label="Senha">
+            <button type="submit">Entrar</button>
+        </form>
+        <p id="login-error" style="color: red; display: none;"></p>
+    </div>
+
+    <div class="container" style="display: none;">
+        <button id="logout-button">Sair</button>
+
+        <h3>Adicionar Tarefa</h3>
+        <input class="input-task" placeholder="O que tenho que fazer..." aria-label="Tarefa">
+        <input type="date" class="input-data" aria-label="Data de Vencimento">
+
+        <label for="prioridade">Prioridade</label>
+        <select class="select-prioridade" id="prioridade">
+            <option value="">Prioridade</option>
+            <option value="baixa">Baixa</option>
+            <option value="media">Média</option>
+            <option value="alta">Alta</option>
+        </select>
+
+        <button class="button-add-task">Adicionar</button>
+
+        <h3>Buscar Tarefas</h3>
+        <input type="text" class="input-busca" placeholder="Buscar tarefa..." aria-label="Busca">
+        
+        <label for="status">Status</label>
+        <select class="select-status" id="status">
+            <option value="">Todas</option>
+            <option value="concluida">Concluídas</option>
+            <option value="pendente">Pendentes</option>
+        </select>
+
+        <ul class="list-tasks"></ul>
+
+        <h3>Gerenciar Tarefas</h3>
+        <button id="export-button">Exportar Tarefas</button>
+        <input type="file" id="import-file" accept=".json" style="display:none;">
+        <button id="import-button">Importar Tarefas</button>
+
+        <button id="theme-toggle">Tema Escuro</button>
+
+        <!-- Seção de Notificações -->
+        <div class="notificacao" style="display: none;"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
